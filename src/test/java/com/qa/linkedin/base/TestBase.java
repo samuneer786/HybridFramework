@@ -21,7 +21,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
 	public static WebDriver driver;
-	public WebDriverWait wait;
+	public static WebDriverWait wait;
 	private static final Logger log = LogManager.getLogger(TestBase.class);
 
 	/**
@@ -50,16 +50,17 @@ public class TestBase {
 	public void setup() throws IOException {
 		log.debug("reading the browser value from properties file");
 		String browserName = readPropertyValue("browser");
-		log.info("Launching the browser:" + browserName);
+		log.info("Launching the browser:" +browserName);
 		if (browserName.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
+			log.info("Opening the browser");
 			driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			FirefoxOptions opt = new FirefoxOptions();
 			opt.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
 
-			// interface refvar=new implementedclass();
+			// interface refvar=new implemented class();
 			driver = new FirefoxDriver(opt);
 
 		} else if (browserName.equalsIgnoreCase("edge")) {
@@ -67,15 +68,14 @@ public class TestBase {
 			driver = new EdgeDriver();
 		}
 
-		log.debug(" maximize the window");
+		log.debug("maximize the window");
 		driver.manage().window().maximize();
 		log.info("implicitwait");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		log.info("create object for WebDriverWait class");
 		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		log.debug("open the application url :" + readPropertyValue("AppUrl"));
+		log.debug("open the application url :" +readPropertyValue("AppUrl"));
 		driver.get(readPropertyValue("AppUrl"));
-
 	}
 
 	@AfterClass
@@ -84,6 +84,5 @@ public class TestBase {
 		if (driver != null) {
 			driver.quit();
 		}
-
 	}
 }

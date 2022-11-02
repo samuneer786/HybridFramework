@@ -36,5 +36,4 @@ public class ExtentManager {
 		String fileName = "ExtentReport" + "-" + d.toString().replace(":", "_").replace(" ", "_") + ".html";
 		return fileName;
 	}
-
 }

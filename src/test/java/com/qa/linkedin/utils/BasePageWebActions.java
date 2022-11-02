@@ -28,23 +28,24 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import com.qa.linkedin.base.TestBase;
+
 public class BasePageWebActions extends TestBase {
 
-	private Logger log= LogManager.getLogger(BasePageWebActions.class);
+	private Logger log = LogManager.getLogger(BasePageWebActions.class);
 	Actions act;
+
 	// Constructor
 	public BasePageWebActions() {
-		
 		wait = new WebDriverWait(driver, Duration.ofSeconds(45));
 		act = new Actions(driver);
 		PageFactory.initElements(driver, this);
 	}
+
 	public void click(WebElement element) throws InterruptedException {
 		log.debug("wait for the element to be clickable or not");
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		log.debug("click on the given element");
 		element.click();
-
 	}
 
 	public void clickByActions(WebElement element) {
@@ -222,7 +223,7 @@ public class BasePageWebActions extends TestBase {
 				"The text " + element.getText() + "doesn't contain the string " + text);
 	}
 
-	 protected void type(WebElement element, String text) throws InterruptedException {
+	protected void type(WebElement element, String text) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		element.clear();
 		element.sendKeys(text);

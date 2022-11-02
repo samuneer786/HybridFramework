@@ -21,15 +21,11 @@ public class ExtentReportListener implements ITestListener{
 	private static ExtentReports extentReport = ExtentManager.createInstance();
 	private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
 	
-
 	public void onTestStart(ITestResult result) {
-	
 		ExtentTest test = extentReport.createTest(result.getTestClass().getName()+" :: "+result.getMethod().getMethodName());
 		extentTest.set(test);
 		extentTest.get().getModel().setStartTime(getTime(result.getStartMillis()));
-
 	}
-
 	public void onTestSuccess(ITestResult result) {
 		System.out.println((result.getMethod().getMethodName() + " passed!"));
 		String methodName=result.getMethod().getMethodName();
@@ -41,7 +37,6 @@ public class ExtentReportListener implements ITestListener{
 
 	public void onTestFailure(ITestResult result) {
 		System.out.println((result.getMethod().getMethodName() + " failed!"));
-			
 		String methodName=result.getMethod().getMethodName();
 		String excepionMessage=Arrays.toString(result.getThrowable().getStackTrace());
 		extentTest.get().fail("<details><summary><b><font color=red>" + "Exception Occured:Click to see"
@@ -79,8 +74,6 @@ public class ExtentReportListener implements ITestListener{
 	}
 
 	public void onStart(ITestContext context) {
-
-		
 
 	}
 
