@@ -25,10 +25,10 @@ public class LinkedinFeedPage extends BasePageWebActions {
 	@FindBy(css="input[class*='search-global-typeahead__input']")
 	private WebElement searchEditbox;
 	
-	@FindBy(xpath="img[class='global-nav__me-photo ember-view']")
+	@FindBy(xpath="//img[contains(@class,'global-nav__me-photo')]")
 	private WebElement profileMeIcon;
 	
-	@FindBy(xpath ="//a[contains(@class,'global-nav'][contains(.,'Sign Out')]")
+	@FindBy(xpath ="//a[contains(@href,'logout')]")
 	private WebElement signoutLink;
 	
 	

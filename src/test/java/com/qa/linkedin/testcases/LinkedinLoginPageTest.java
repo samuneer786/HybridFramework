@@ -23,9 +23,6 @@ public class LinkedinLoginPageTest extends TestBase {
 		log.info("creating login page object");
 		homePage = new LinkedinHomePage();
 		loginPage = new LinkedinLoginPage();
-		
-		//loginPage = homePage.clickOnSigninLink();
-
 	}
 
 	@Test
@@ -36,7 +33,7 @@ public class LinkedinLoginPageTest extends TestBase {
 
 	@Test
 	public void verifyLoginPageTitle() {
-		log.debug("*****Start verifyLoginPageTitle()********");
+		log.debug("Verifying Login Page title");
 		Assert.assertTrue(loginPage.getLinkedinSigninpageTitle().contains("Login, Sign in"),
 				"signin page title is not correct");
 	}

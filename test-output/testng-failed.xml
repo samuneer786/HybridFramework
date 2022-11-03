@@ -3,14 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.qa.linkedin.testcases.LinkedinFeedPageTest">
+      <class name="com.qa.linkedin.testcases.LinkedinSearchResultsTest">
         <methods>
-          <include name="doLogoutTest"/>
           <include name="tearDown"/>
+          <include name="doLogoutTest"/>
           <include name="setup"/>
+          <include name="doLoginTest"/>
           <include name="beforeClass"/>
         </methods>
-      </class> <!-- com.qa.linkedin.testcases.LinkedinFeedPageTest -->
+      </class> <!-- com.qa.linkedin.testcases.LinkedinSearchResultsTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

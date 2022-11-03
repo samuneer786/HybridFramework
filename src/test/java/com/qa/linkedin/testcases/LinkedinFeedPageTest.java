@@ -22,13 +22,13 @@ public class LinkedinFeedPageTest extends TestBase {
 
 	@BeforeClass
 	public void beforeClass() throws InterruptedException {
-		log.info("creating login page object");
+		log.info("creating feed page object");
 		homePage = new LinkedinHomePage();
 		loginPage = new LinkedinLoginPage();
 		feedPage = new LinkedinFeedPage();
 	}
 	
-	@Test(description ="navigate to login page ")
+	@Test(description ="navigate to login page",priority=0)
 	public void navigateToLoginPageTest() throws InterruptedException {
 		log.info("navigating to login page");
 		homePage.clickOnSigninLink();
@@ -41,23 +41,24 @@ public class LinkedinFeedPageTest extends TestBase {
 		log.info("Login is Successful");
 	}
 
-	@Test(description = "verifying profile railcard element", dependsOnMethods = { "doLoginTest" })
+	@Test(description = "verifying profile railcard element", dependsOnMethods = { "doLoginTest" },priority=2)
 	public void verifyProfileRailcardTest() {
 		log.debug("verifying element ProfileRailCardPresent or not");
 		Assert.assertTrue(feedPage.isProfileRailCardPresent(), "profilerailcard element is not present");
 		
 	}
 
-	@Test(dependsOnMethods = { "doLoginTest" })
+	@Test(dependsOnMethods = { "doLoginTest" },priority=3)
 	public void verifyFeedPageTitleTest() {
 		log.debug("Verifying feed page title");
 		Assert.assertTrue(feedPage.getLinkedinFeedPageTitle().contains("Feed | LinkedIn"),
 				"Feed | LinkedIn is not present");
 	}
 
-	@Test
+	@Test(priority=4)
 	public void doLogoutTest() throws InterruptedException {
 		log.debug("Logging out from linkedin application");
+		Thread.sleep(2000);
 		feedPage.doLogout();
 	}
 }

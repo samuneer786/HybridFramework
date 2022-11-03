@@ -19,13 +19,13 @@ import org.testng.Assert;
 
 public class LinkedinSearchResultsTest extends TestBase {
 
-	private Logger log = LogManager.getLogger(LinkedinSearchResultsTest.class);
+	private static  Logger log = LogManager.getLogger(LinkedinSearchResultsTest.class);
 	LinkedinLoginPage loginPage;
 	LinkedinHomePage homePage;
 	LinkedinFeedPage feedPage;
 	LinkedinSearchResultsPage searchPage;
 		
-	private static String filePath=System.getProperty("user.dir")+"\\src\\test\\java\\com\\qa\\linkedin\\data\\testData.xlsx";
+	private static String workbookPath=System.getProperty("user.dir")+"\\src\\test\\java\\com\\qa\\linkedin\\data\\testData.xlsx";
 
 	@BeforeClass
 	public void beforeClass() throws InterruptedException {
@@ -37,34 +37,45 @@ public class LinkedinSearchResultsTest extends TestBase {
 		searchPage = new LinkedinSearchResultsPage();
 	}
 	
-	@Test(description = "Navigate to login page")
+	@Test(description = "Navigate to login page",priority=0)
 	public void navigateToLoginPageTest() throws InterruptedException {
 		log.info("Navigating to login page");
 		homePage.clickOnSigninLink();
 	}
 
-	@Test(description = "login to linkedin", priority = 1)
+	@Test(description = "login to linkedin", priority=1)
 	public void doLoginTest() throws InterruptedException, IOException {
 		log.debug("entering username and password");
 		feedPage = loginPage.doLogin(readPropertyValue("username"), readPropertyValue("password"));
 		log.info("Login is Successful");
 	}
 
-	@Test(dependsOnMethods = { "doLoginTest" }, priority = 2)
-	public void doPeopleSearchTest() throws InterruptedException {
-		log.debug("Entering search name:");
-		searchPage = feedPage.doPeopleSearch("Ramesh");
+	@Test(dependsOnMethods = { "doLoginTest" }, priority=2, dataProvider="getData")
+	public void doPeopleSearchTest(String name) throws InterruptedException {
+		log.debug("Entering search name: "+name);
+		searchPage = feedPage.doPeopleSearch(name);
 		Thread.sleep(3000);
-		
+		log.info("click on seeAllpeopleResultsLink");
+		searchPage.clickOnSeeAllPeopleResultsLink();
+		Thread.sleep(1000);
+		log.info("verify the search results page title");
+		Assert.assertTrue(searchPage.getSearchResultsPageTitle().contains("Search | LinkedIn"));
+		log.info("fetching search results count for:"+name);
+		long count=searchPage.getResultCount();
+		log.info("count for "+name+" is:"+count);
+		log.info("click on Home tab");
+		searchPage.clickOnHomeTab();
+		Thread.sleep(1000);
 	}
 	
-	@DataProvider(name="getTestData")
+	@DataProvider(name="getData")
 	public Object[][] getTestData() throws IOException{
-		Object[][] data=new ExcelUtils().getTestData(filePath, "Sheet1");
-		return data;
+		Object[][] sheetname=new ExcelUtils().getTestData(workbookPath, "Sheet1");
+		return sheetname;
 	}
-
-	@Test
+	
+	
+	@Test(dependsOnMethods= {"doLoginTest"},priority=4)
 	public void doLogoutTest() throws InterruptedException {
 		log.info("performing the logout from linkedin");
 		Thread.sleep(2000);

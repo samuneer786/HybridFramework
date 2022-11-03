@@ -2,6 +2,7 @@ package com.qa.linkedin.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -16,13 +17,13 @@ public class LinkedinSearchResultsPage extends BasePageWebActions {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//a[@class='app-aware-link'][contains(.,'See all people results')]")
+	@FindBy(xpath="//div[contains(@class,'search-results')]/a[1][contains(.,'See all people results')]")
 	private WebElement seeAllPeopleResultsLink;
 
-	@FindBy(xpath = "//div[@class='search-results-container']/h2")
+	@FindBy(xpath="//h2[@class='pb2 t-black--light t-14']")
 	private WebElement searchResultsText;
 
-	@FindBy(xpath = "//nav[@class='global-nav__nav']/ul/li[1]/a")
+	@FindBy(xpath="//span[@title='Home']")
 	private WebElement homeTab;
 
 	/**
@@ -49,8 +50,10 @@ public class LinkedinSearchResultsPage extends BasePageWebActions {
 	}
 
 	public void clickOnSeeAllPeopleResultsLink() throws InterruptedException {
-		log.info("click on seeAllPeopleResultsLink");
+		log.info("clicking on seeAllPeopleResultsLink");
+		if(isElementPresent(By.xpath("//div[contains(@class,'search-results')]/a[1]"))) {
 		click(seeAllPeopleResultsLink);
+		}
 	}
 
 	public void clickOnHomeTab() throws InterruptedException {
@@ -65,7 +68,7 @@ public class LinkedinSearchResultsPage extends BasePageWebActions {
 
 		log.debug("results count is:" + strArray[1]);
 		log.debug("convert the string into long format");
-		long count = Long.parseLong(strArray[1].replace(",", ""));
-		return count;
+		long resultcount = Long.parseLong(strArray[1].replace(",", ""));
+		return resultcount;
 	}
 }
