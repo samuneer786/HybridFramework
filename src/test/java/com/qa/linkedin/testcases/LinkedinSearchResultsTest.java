@@ -75,7 +75,7 @@ public class LinkedinSearchResultsTest extends TestBase {
 	}
 	
 	
-	@Test(dependsOnMethods= {"doLoginTest"},priority=4)
+	@Test(dependsOnMethods= {"doLoginTest"},priority=3)
 	public void doLogoutTest() throws InterruptedException {
 		log.info("performing the logout from linkedin");
 		Thread.sleep(2000);

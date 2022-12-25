@@ -23,7 +23,7 @@ public class ExtentManager {
 		htmlReporter.config().setEncoding("utf-8");
 		htmlReporter.config().setReportName("Linkedin Automation Test Results");
 		extent = new ExtentReports();
-		extent.setSystemInfo("Automation Tester", "Ramesh");
+		extent.setSystemInfo("Automation Tester", "Muneer");
 		extent.setSystemInfo("Organization", "linkedin");
 		extent.setSystemInfo("Build no", "QA-1234");
 		extent.attachReporter(htmlReporter);

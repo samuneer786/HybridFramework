@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="66438" started-at="2022-11-03T05:44:09 PDT" finished-at="2022-11-03T05:45:16 PDT">
+  <suite started-at="2022-11-26T20:46:14 IST" name="Default suite" finished-at="2022-11-26T20:46:57 IST" duration-ms="43343">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="66438" started-at="2022-11-03T05:44:09 PDT" finished-at="2022-11-03T05:45:16 PDT">
+    <test started-at="2022-11-26T20:46:14 IST" name="Default test" finished-at="2022-11-26T20:46:57 IST" duration-ms="43343">
       <class name="com.qa.linkedin.testcases.LinkedinFeedPageTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.qa.linkedin.testcases.LinkedinFeedPageTest@6e017950]" name="setup" is-config="true" duration-ms="18498" started-at="2022-11-03T05:44:10 PDT" finished-at="2022-11-03T05:44:28 PDT">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.linkedin.testcases.LinkedinFeedPageTest@6941827a]" started-at="2022-11-26T20:46:14 IST" name="setup" finished-at="2022-11-26T20:46:25 IST" duration-ms="11715" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.qa.linkedin.testcases.LinkedinFeedPageTest@6e017950]" name="beforeClass" is-config="true" duration-ms="357" started-at="2022-11-03T05:44:28 PDT" finished-at="2022-11-03T05:44:28 PDT">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:com.qa.linkedin.testcases.LinkedinFeedPageTest@6941827a]" started-at="2022-11-26T20:46:25 IST" name="beforeClass" finished-at="2022-11-26T20:46:26 IST" duration-ms="239" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="navigateToLoginPageTest()[pri:0, instance:com.qa.linkedin.testcases.LinkedinFeedPageTest@6e017950]" name="navigateToLoginPageTest" duration-ms="7537" started-at="2022-11-03T05:44:28 PDT" description="navigate to login page" finished-at="2022-11-03T05:44:36 PDT">
+        <test-method signature="navigateToLoginPageTest()[pri:0, instance:com.qa.linkedin.testcases.LinkedinFeedPageTest@6941827a]" started-at="2022-11-26T20:46:26 IST" name="navigateToLoginPageTest" description="navigate to login page" finished-at="2022-11-26T20:46:30 IST" duration-ms="4396" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigateToLoginPageTest -->
-        <test-method status="PASS" signature="doLoginTest()[pri:1, instance:com.qa.linkedin.testcases.LinkedinFeedPageTest@6e017950]" name="doLoginTest" duration-ms="33396" started-at="2022-11-03T05:44:36 PDT" description="login to linkedin" finished-at="2022-11-03T05:45:09 PDT">
+        <test-method signature="doLoginTest()[pri:1, instance:com.qa.linkedin.testcases.LinkedinFeedPageTest@6941827a]" started-at="2022-11-26T20:46:30 IST" name="doLoginTest" description="login to linkedin" finished-at="2022-11-26T20:46:52 IST" duration-ms="21376" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doLoginTest -->
-        <test-method status="PASS" signature="verifyProfileRailcardTest()[pri:2, instance:com.qa.linkedin.testcases.LinkedinFeedPageTest@6e017950]" name="verifyProfileRailcardTest" duration-ms="121" started-at="2022-11-03T05:45:10 PDT" description="verifying profile railcard element" depends-on-methods="com.qa.linkedin.testcases.LinkedinFeedPageTest.doLoginTest" finished-at="2022-11-03T05:45:10 PDT">
+        <test-method signature="verifyProfileRailcardTest()[pri:2, instance:com.qa.linkedin.testcases.LinkedinFeedPageTest@6941827a]" started-at="2022-11-26T20:46:52 IST" name="verifyProfileRailcardTest" description="verifying profile railcard element" finished-at="2022-11-26T20:46:53 IST" depends-on-methods="com.qa.linkedin.testcases.LinkedinFeedPageTest.doLoginTest" duration-ms="912" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyProfileRailcardTest -->
-        <test-method status="PASS" signature="verifyFeedPageTitleTest()[pri:3, instance:com.qa.linkedin.testcases.LinkedinFeedPageTest@6e017950]" name="verifyFeedPageTitleTest" duration-ms="253" started-at="2022-11-03T05:45:10 PDT" depends-on-methods="com.qa.linkedin.testcases.LinkedinFeedPageTest.doLoginTest" finished-at="2022-11-03T05:45:10 PDT">
+        <test-method signature="verifyFeedPageTitleTest()[pri:3, instance:com.qa.linkedin.testcases.LinkedinFeedPageTest@6941827a]" started-at="2022-11-26T20:46:53 IST" name="verifyFeedPageTitleTest" finished-at="2022-11-26T20:46:53 IST" depends-on-methods="com.qa.linkedin.testcases.LinkedinFeedPageTest.doLoginTest" duration-ms="30" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyFeedPageTitleTest -->
-        <test-method status="PASS" signature="doLogoutTest()[pri:4, instance:com.qa.linkedin.testcases.LinkedinFeedPageTest@6e017950]" name="doLogoutTest" duration-ms="3860" started-at="2022-11-03T05:45:10 PDT" finished-at="2022-11-03T05:45:14 PDT">
+        <test-method signature="doLogoutTest()[pri:4, instance:com.qa.linkedin.testcases.LinkedinFeedPageTest@6941827a]" started-at="2022-11-26T20:46:53 IST" name="doLogoutTest" finished-at="2022-11-26T20:46:56 IST" duration-ms="3652" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doLogoutTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.linkedin.testcases.LinkedinFeedPageTest@6e017950]" name="tearDown" is-config="true" duration-ms="1867" started-at="2022-11-03T05:45:14 PDT" finished-at="2022-11-03T05:45:16 PDT">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.qa.linkedin.testcases.LinkedinFeedPageTest@6941827a]" started-at="2022-11-26T20:46:56 IST" name="tearDown" finished-at="2022-11-26T20:46:57 IST" duration-ms="829" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

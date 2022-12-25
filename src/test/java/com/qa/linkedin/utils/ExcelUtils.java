@@ -36,7 +36,7 @@ public class ExcelUtils {
 		log.debug("Load workbook");
 		workbook = new XSSFWorkbook(fis);
 
-		// Load sheet- Here we are loading first sheetonly
+		// Load sheet- Here we are loading first sheet only
 		sheet = workbook.getSheet(sheetName);
 		log.debug("fetch the row count"); // two d array declaration
 		int rowCount = sheet.getLastRowNum();

@@ -43,5 +43,4 @@ public class LinkedinLoginPageTest extends TestBase {
 		log.info("Deleting all browser cache");
 		driver.manage().deleteAllCookies();
 	}
-	
 }
